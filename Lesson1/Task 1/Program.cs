@@ -15,25 +15,19 @@ namespace Task_1
             z = Convert.ToInt32(Console.ReadLine());
 
             // первый пункт
-            int powZ = (int)Math.Pow(z, 2);
-            powZ++;
-            double rezult1 = (x + y) * powZ;
+            double powZ = Math.Pow(z, 2);
+            double rezult1 = (x + y) * ++powZ;
 
             // второй пункт
-            double sqrtY = (int)Math.Sqrt(y);
             double divideXZ = x / z;
-            divideXZ--;
-            double rezult2 = divideXZ * sqrtY;
+            double rezult2 = -- (divideXZ) * Math.Sqrt(y);
 
             // третий пункт
-            int cubeZ = (int)Math.Pow(z, 3);
-            int multi1 = x * y;
-            int multi2 = y * z;
-            double rezult3 = (multi1 + multi2) / cubeZ;
+            double rezult3 = ((x * y) + (y * z)) / (int)Math.Pow(z, 3);
 
-            Console.WriteLine("First expression result:" + rezult1);
-            Console.WriteLine("Second expression result:" + rezult2);
-            Console.WriteLine("Third expression result:" + rezult3);
+            Console.WriteLine($"First expression result: {rezult1}");
+            Console.WriteLine($"Second expression result: {rezult2}");
+            Console.WriteLine($"Third expression result: {rezult3}");
         }
     }
 }

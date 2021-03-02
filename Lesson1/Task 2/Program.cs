@@ -15,7 +15,7 @@ namespace Task_2
             Console.Write("Enter the length of the rectangular parallelepiped= ");
             length = Convert.ToInt32(Console.ReadLine());
             diagonal = Math.Sqrt(Math.Pow(width, 2) + Math.Pow(height, 2) + Math.Pow(length, 2));
-            Console.WriteLine("Parallelepiped diagonal length:" + diagonal);
+            Console.WriteLine($"Parallelepiped diagonal length: {diagonal}");
         }
     }
 }

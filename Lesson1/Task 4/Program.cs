@@ -13,7 +13,7 @@ namespace Task_4
             Console.Write("Enter 2nd string= ");
             s2 = Console.ReadLine();
             Console.Write("Enter symbol= ");
-            symbol = Console.ReadLine()[0];
+            symbol = (char)Console.Read();
             string s3 = String.Concat(s1, s2);
             int indexOfChar = s3.LastIndexOf(symbol);
             Console.WriteLine($"Index of {symbol} in {s3}: {indexOfChar}");
