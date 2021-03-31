@@ -4,19 +4,19 @@ namespace Task_1
 {
     class Program
     {
-        /*static int ifNotIntegerNumber(string enterMessageForUser) //проверка на число
+        static int ifNotIntegerNumber(string enterMessageForUser) //проверка на число
         {
             int result;
+            var number = Console.ReadLine();
             do
             {
                 Console.WriteLine(enterMessageForUser);
-                var number = Console.ReadLine();
             }
             while (int.TryParse(number, out result));
             return result;
-        }*/
+        }
 
-        static int ifUnacceptable(int a)
+        static int ValidateNumber(int a)
         {
             while (a == 0 | a < 0) 
             {
@@ -32,13 +32,13 @@ namespace Task_1
             int x, y, z;
             Console.Write("Enter x= ");
             x = Convert.ToInt32(Console.ReadLine());
-            ifUnacceptable(x);
+            ValidateNumber(x);
             Console.Write("Enter y= ");
             y = Convert.ToInt32(Console.ReadLine());
-            ifUnacceptable(y);
+            ValidateNumber(y);
             Console.Write("Enter z= ");
             z = Convert.ToInt32(Console.ReadLine());
-            ifUnacceptable(z);
+            ValidateNumber(z);
 
             // первый пункт
             double powZ = Math.Pow(z, 2);

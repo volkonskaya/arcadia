@@ -14,39 +14,37 @@ namespace Task2_Calculator
             string symbol = Console.ReadLine();
             Console.WriteLine("Enter 2nd operand: ");
             operand2 = Convert.ToInt32(Console.ReadLine());
-            if (symbol == "+")
-            {
-                result = operand1 + operand2;
-                Console.WriteLine($"Your result: {operand1} + {operand2} = {result}");
-            }
 
-            if (symbol == "-")
+            switch (symbol)
             {
-                result = operand1 - operand2;
-                Console.WriteLine($"Your result: {operand1} - {operand2} = {result}");
-            }
-
-            if (symbol == "*")
-            {
-                result = operand1 * operand2;
-                Console.WriteLine($"Your result: {operand1} * {operand2} = {result}");
-            }
-
-            if (symbol == "/")
-            {
-                while (operand2 == 0)
-                {
-                    Console.WriteLine("Enter a non-zero divisor: ");
-                    operand2 = Convert.ToInt32(Console.ReadLine());
-                }
-                result = operand1 / operand2;
-                Console.WriteLine($"Your result: {operand1} / {operand2} = {result}");      
-            }
-
-            if (symbol == "^")
-            {
-                result = (int)Math.Pow(operand1, operand2);
-                Console.WriteLine($"Your result: {operand1} ^ {operand2} = {result}");
+                case "+":
+                    result = operand1 + operand2;
+                    Console.WriteLine($"Your result: {operand1} + {operand2} = {result}");
+                    break;
+                case "-":
+                    result = operand1 - operand2;
+                    Console.WriteLine($"Your result: {operand1} - {operand2} = {result}");
+                    break;
+                case "*":
+                    result = operand1 * operand2;
+                    Console.WriteLine($"Your result: {operand1} * {operand2} = {result}");
+                    break;
+                case "/":
+                    while (operand2 == 0)
+                    {
+                        Console.WriteLine("Enter a non-zero divisor: ");
+                        operand2 = Convert.ToInt32(Console.ReadLine());
+                    }
+                    result = operand1 / operand2;
+                    Console.WriteLine($"Your result: {operand1} / {operand2} = {result}");
+                    break;
+                case "^":
+                    result = (int)Math.Pow(operand1, operand2);
+                    Console.WriteLine($"Your result: {operand1} ^ {operand2} = {result}");
+                    break;
+                default:
+                    Console.WriteLine("Sorry, incorrect input! Please try again!");
+                    break;
             }
 
         }

@@ -6,7 +6,7 @@ namespace Task1_Auth
     {
         private static object userUsername;
         private static object userPassword;
-        public static void Credentials()
+        public static void GetCredentials()
         {
             Console.WriteLine("Enter a username: ");
             userUsername = Console.ReadLine();
@@ -19,23 +19,30 @@ namespace Task1_Auth
 
             string username = "tania";
             string password = "12345";
-            const int maxAttempt = 2;
-            int attemp = 0;
-            Credentials();
+            const int maxAttempt = 3;
+            int attempt = 0;
 
-            if (username.Equals(userUsername) && password.Equals(userPassword))
+            while (attempt < maxAttempt)
             {
-                Console.WriteLine($"Welcome {username}! Nice to see you again!");
-            }
-            else
-            {
-                while (attemp < maxAttempt)
+                GetCredentials();
+                if (username.Equals(userUsername) && password.Equals(userPassword))
                 {
-                    attemp++;
-                    Console.WriteLine("Wrong username or password, please try again");
-                    Credentials();
+                    Console.WriteLine($"Welcome {username}! Nice to see you again!");
+                    break;
                 }
-                Console.WriteLine("Error! The maximum number of attempts has been exhausted!");
+                else
+                {
+                    attempt++;
+                    if (attempt == maxAttempt)
+                    {
+                        Console.WriteLine("Error! The maximum number of attempts has been exhausted!");
+                    }
+                    else 
+                    { 
+                        Console.WriteLine("Wrong username or password, please try again"); 
+                    }
+
+                }
             }
         }
     }
