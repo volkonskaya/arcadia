@@ -4,7 +4,7 @@ namespace Task_1
 {
     class Program
     {
-        static int ifNotIntegerNumber(string enterMessageForUser) //проверка на число
+        static int IfNotIntegerNumber(string enterMessageForUser) //проверка на число
         {
             int result;
             var number = Console.ReadLine();
