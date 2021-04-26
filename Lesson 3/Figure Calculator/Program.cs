@@ -2,59 +2,43 @@
 
 namespace Figure_Calculator
 {
-    abstract class Figure
-    {
-        public abstract int AreaCalculator();
-        public abstract int PerimeterCalculator();
-    }
-    class Circle: Figure
-    {
-        private int radius;
-        private double pi = 3.14;
-        public Circle(int radius) // circle constructor
-        {
-            this.radius = radius;
-        }
-        public override int AreaCalculator()
-        {
-            return Convert.ToInt32(pi * (int)Math.Pow(radius, 2));
-        }
 
-        public override int PerimeterCalculator()
-        {
-            return Convert.ToInt32(2 * pi * radius);
-        }
-    }
-    class Rectangle: Figure
-    {
-        private int side1, side2;
-        public Rectangle(int side1, int side2) // rectangle constructor
-        {
-            this.side1 = side1;
-            this.side2 = side2;
-        }
-
-        public override int AreaCalculator()
-        {
-            return side1 * side2; 
-        }
-
-        public override int PerimeterCalculator()
-        {
-            return 2*(side1 + side2);
-        }
-    }
     class Program
     {
+        static int ValidateIfNotIntegerNumber()
+        {
+            int num;
+            var a = Console.ReadLine();
+            while (!int.TryParse(a, out num))
+            {
+                Console.WriteLine("Value is unacceptable. Only numbers are available for input. Please enter another value: ");
+                a = Console.ReadLine();
+            }
+            return num;
+        }
+
+        static int ValidateNumberByZero(int a)
+        {
+            while (a <= 0)
+            {
+                Console.WriteLine("Value is unacceptable. Please enter another value: ");
+                a = ValidateIfNotIntegerNumber();
+            }
+            return a;
+
+        }
         static void Main(string[] args)
         {
             int side1, side2, radius;
             Console.WriteLine("Please enter 1st side of Rectangle: ");
-            side1 = Convert.ToInt32(Console.ReadLine());
+            side1 = ValidateIfNotIntegerNumber();
+            side1 = ValidateNumberByZero(side1);
             Console.WriteLine("Please enter 2nd side of Rectangle: ");
-            side2 = Convert.ToInt32(Console.ReadLine());
+            side2 = ValidateIfNotIntegerNumber();
+            side2 = ValidateNumberByZero(side2);
             Console.WriteLine("Please enter radius for Circle: ");
-            radius = Convert.ToInt32(Console.ReadLine());
+            radius = ValidateIfNotIntegerNumber();
+            radius = ValidateNumberByZero(radius);
 
             Rectangle rect = new Rectangle(side1, side2);
             Console.WriteLine($"Area of Rectangle is: {rect.AreaCalculator()}");

@@ -4,24 +4,24 @@ namespace Task_1
 {
     class Program
     {
-        static int IfNotIntegerNumber(string enterMessageForUser) //проверка на число
+        static int ValidateIfNotIntegerNumber() 
         {
-            int result;
-            var number = Console.ReadLine();
-            do
+            int num;
+            var a = Console.ReadLine();
+            while (!int.TryParse(a, out num))
             {
-                Console.WriteLine(enterMessageForUser);
+                Console.WriteLine("Value is unacceptable. Only numbers are available for input. Please enter another value: ");
+                a = Console.ReadLine();
             }
-            while (int.TryParse(number, out result));
-            return result;
+            return num;
         }
 
-        static int ValidateNumber(int a)
+            static int ValidateNumberByZero(int a)
         {
-            while (a == 0 | a < 0) 
+            while (a <= 0) 
             {
                 Console.WriteLine("Value is unacceptable. Please enter another value: ");
-                a = Convert.ToInt32(Console.ReadLine());
+                a = ValidateIfNotIntegerNumber();
             }
             return a;
 
@@ -31,14 +31,14 @@ namespace Task_1
         {
             int x, y, z;
             Console.Write("Enter x= ");
-            x = Convert.ToInt32(Console.ReadLine());
-            ValidateNumber(x);
+            x = ValidateIfNotIntegerNumber(); 
+            x = ValidateNumberByZero(x);
             Console.Write("Enter y= ");
-            y = Convert.ToInt32(Console.ReadLine());
-            ValidateNumber(y);
+            y = ValidateIfNotIntegerNumber();
+            y = ValidateNumberByZero(y);
             Console.Write("Enter z= ");
-            z = Convert.ToInt32(Console.ReadLine());
-            ValidateNumber(z);
+            z = ValidateIfNotIntegerNumber();
+            z = ValidateNumberByZero(z);
 
             // первый пункт
             double powZ = Math.Pow(z, 2);

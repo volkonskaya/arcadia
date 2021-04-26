@@ -9,7 +9,7 @@ namespace Singleton
         private Single() //constructor
         { }
 
-        public static Single getinstance()
+        public static Single GetInstance()
         {
             if (instance == null)
                 instance = new Single();
@@ -20,8 +20,8 @@ namespace Singleton
     {
         static void Main(string[] args)
         {
-            Single s1 = Single.getinstance();
-            Single s2 = Single.getinstance();
+            Single s1 = Single.GetInstance();
+            Single s2 = Single.GetInstance();
 
             if (s1.GetHashCode() == s2.GetHashCode())
             {

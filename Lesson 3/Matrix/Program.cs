@@ -4,11 +4,34 @@ namespace Matrix
 {
     class Program
     {
+        static int ValidateIfNotIntegerNumber()
+        {
+            int num;
+            var a = Console.ReadLine();
+            while (!int.TryParse(a, out num))
+            {
+                Console.WriteLine("Value is unacceptable. Only numbers are available for input. Please enter another value: ");
+                a = Console.ReadLine();
+            }
+            return num;
+        }
+
+        static int ValidateNumberByZero(int a)
+        {
+            while (a <= 0)
+            {
+                Console.WriteLine("Value is unacceptable. Please enter another value: ");
+                a = ValidateIfNotIntegerNumber();
+            }
+            return a;
+
+        }
         static void Main(string[] args)
         {
             int n;
             Console.WriteLine("Please enter size of matrix: ");
-            n = Convert.ToInt32(Console.ReadLine());
+            n = ValidateIfNotIntegerNumber();
+            n = ValidateNumberByZero(n);
             int[,] array = new int[n, n];
             Random rnd = new Random();
             int sum = 0;
