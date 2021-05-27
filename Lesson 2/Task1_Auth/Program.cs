@@ -41,7 +41,6 @@ namespace Task1_Auth
                     { 
                         Console.WriteLine("Wrong username or password, please try again"); 
                     }
-
                 }
             }
         }

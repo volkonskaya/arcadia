@@ -32,10 +32,8 @@ namespace Task_1
             int x, y, z;
             Console.Write("Enter x= ");
             x = ValidateIfNotIntegerNumber(); 
-            x = ValidateNumberByZero(x);
             Console.Write("Enter y= ");
             y = ValidateIfNotIntegerNumber();
-            y = ValidateNumberByZero(y);
             Console.Write("Enter z= ");
             z = ValidateIfNotIntegerNumber();
             z = ValidateNumberByZero(z);

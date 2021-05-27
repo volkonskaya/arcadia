@@ -40,11 +40,11 @@ namespace Figure_Calculator
             radius = ValidateIfNotIntegerNumber();
             radius = ValidateNumberByZero(radius);
 
-            Rectangle rect = new Rectangle(side1, side2);
+            Figure rect = new Rectangle(side1, side2);
             Console.WriteLine($"Area of Rectangle is: {rect.AreaCalculator()}");
             Console.WriteLine($"Perimeter of Rectangle is: {rect.PerimeterCalculator()}");
 
-            Circle circ = new Circle(radius);
+            Figure circ = new Circle(radius);
             Console.WriteLine($"Area of Circle is: {circ.AreaCalculator()}");
             Console.WriteLine($"Perimeter of Circle is: {circ.PerimeterCalculator()}");
         }

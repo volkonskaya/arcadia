@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Figure_Calculator
+﻿namespace Figure_Calculator
 {
     abstract class Figure
     {

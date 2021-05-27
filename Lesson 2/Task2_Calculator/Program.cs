@@ -4,16 +4,27 @@ namespace Task2_Calculator
 {
     class Program
     {
+        static int ValidateIfNotIntegerNumber()
+        {
+            int num;
+            var a = Console.ReadLine();
+            while (!int.TryParse(a, out num))
+            {
+                Console.WriteLine("Value is unacceptable. Only numbers are available for input. Please enter another value: ");
+                a = Console.ReadLine();
+            }
+            return num;
+        }
         static void Main(string[] args)
         {
             int operand1, operand2;
             double result;
             Console.WriteLine("Enter 1st operand: ");
-            operand1 = Convert.ToInt32(Console.ReadLine());
+            operand1 = ValidateIfNotIntegerNumber();
             Console.WriteLine("Enter symbol. +-/*^ are allowed: ");
             string symbol = Console.ReadLine();
             Console.WriteLine("Enter 2nd operand: ");
-            operand2 = Convert.ToInt32(Console.ReadLine());
+            operand2 = ValidateIfNotIntegerNumber();
 
             switch (symbol)
             {
