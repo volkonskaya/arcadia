@@ -4,15 +4,39 @@ namespace Task_1
 {
     class Program
     {
+        static int ValidateIfNotIntegerNumber() 
+        {
+            int num;
+            var a = Console.ReadLine();
+            while (!int.TryParse(a, out num))
+            {
+                Console.WriteLine("Value is unacceptable. Only numbers are available for input. Please enter another value: ");
+                a = Console.ReadLine();
+            }
+            return num;
+        }
+
+            static int ValidateNumberByZero(int a)
+        {
+            while (a <= 0) 
+            {
+                Console.WriteLine("Value is unacceptable. Please enter another value: ");
+                a = ValidateIfNotIntegerNumber();
+            }
+            return a;
+
+        }
+
         static void Main(string[] args)
         {
             int x, y, z;
             Console.Write("Enter x= ");
-            x = Convert.ToInt32(Console.ReadLine());
+            x = ValidateIfNotIntegerNumber(); 
             Console.Write("Enter y= ");
-            y = Convert.ToInt32(Console.ReadLine());
+            y = ValidateIfNotIntegerNumber();
             Console.Write("Enter z= ");
-            z = Convert.ToInt32(Console.ReadLine());
+            z = ValidateIfNotIntegerNumber();
+            z = ValidateNumberByZero(z);
 
             // первый пункт
             double powZ = Math.Pow(z, 2);
@@ -20,7 +44,7 @@ namespace Task_1
 
             // второй пункт
             double divideXZ = x / z;
-            double rezult2 = -- (divideXZ) * Math.Sqrt(y);
+            double rezult2 = --(divideXZ) * Math.Sqrt(y);
 
             // третий пункт
             double rezult3 = ((x * y) + (y * z)) / (int)Math.Pow(z, 3);
